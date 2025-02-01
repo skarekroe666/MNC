@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import About from './components/About'
 import Shop from './components/Shop'
+import Results from './components/Results'
 
 const App = () => {
   return (
@@ -10,9 +11,10 @@ const App = () => {
       {/* Background SVG */}
 
       {/* Components */}
-      <Navbar />
+      <Navbar/>
       <Home/>
       <About/>
+      <Results/>
       <Shop/>
     </div>
   )
