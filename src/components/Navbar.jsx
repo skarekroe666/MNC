@@ -1,9 +1,11 @@
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import logo from '../../src/assets/logo.png'
-import { Mail } from 'lucide-react'
+import { Mail, Menu } from 'lucide-react'
+import { useState } from 'react'
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
     
     return (
         <div className="m-3 flex justify-between items-center">
@@ -12,8 +14,15 @@ const Navbar = () => {
                 <img src={logo} alt="MNC" className="h-14" />
             </a>
 
-            {/* Navigation */}
-            <nav>
+            {/* Mobile Menu Toggle */}
+            <div className="md:hidden">
+                <button onClick={() => setIsOpen(!isOpen)}>
+                    <Menu size={30} />
+                </button>
+            </div>
+
+            {/* Navigation - Hidden in Mobile */}
+            <nav className="hidden md:block">
                 <ul className="flex space-x-14">
                     {["Home", "About", "Shop", "Contact"].map((item, index) => (
                         <li
@@ -28,8 +37,8 @@ const Navbar = () => {
             </nav>
 
             {/* Button */}
-            <Button variant="mayleen">
-                Get in touch <Mail />
+            <Button variant="mayleen" className="hidden md:block">
+                Get in touch
             </Button>
         </div>
     )
